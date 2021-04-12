@@ -1,0 +1,1 @@
+[('the', 9), ('Lorem', 7), ('of', 7), ('a', 7), ('and', 6), ('Ipsum', 5), ('is', 4), ('has', 3), ('it', 3), ('It', 3), ('dummy', 2), ('text', 2), ('when', 2), ('type', 2), ('to', 2), ('in', 2), ('with', 2), ('desktop', 2), ('publishing', 2), ('like', 2)]
