@@ -1,0 +1,39 @@
+enumerate :
+===========
+    The enumerate() function takes a collection (e.g. a tuple) and returns it as an enumerate object.
+    The enumerate() function adds a counter as the key of the enumerate object.
+    enumerate(iterable, start)
+
+    example:
+        string = input("please enter you string: ")
+        ch = input("enter you ch: ")
+        list1 = []
+
+        for i, v in enumerate(string):
+            if v == ch:
+                list1.append(i)
+        print(list1)
+============================================================================================================
+lambda expression :
+===================
+A lambda function is a small anonymous function.
+A lambda function can take any number of arguments, but can only have one expression.
+
+lambda arguments : expression
+
+example :
+    x = lambda a, b : a * b
+    print(x(5, 6))
+
+============================================================================================================
+operator module:
+================
+The operator module exports a set of efficient functions corresponding to the intrinsic operators of Python.
+For example, operator.add(x, y) is equivalent to the expression x+y
+
+operator.lt(a, b)
+operator.le(a, b)¶
+operator.eq(a, b)
+operator.ne(a, b)
+operator.ge(a, b)
+operator.gt(a, b)
