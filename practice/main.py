@@ -29,10 +29,10 @@
 #     print("ma4i")
 # else:
 #     print("ya za3im")
-lis = [0, 2, 3, 7, 9, ['x', 'y']]
+# lis = [0, 2, 3, 7, 9, ['x', 'y']]
 # for i in range(len(lis)):
 #     print(lis[i])
-i = 0
+# i = 0
 
 
 # while i < len(lis):
@@ -62,4 +62,57 @@ i = 0
 #         print(val)
 #
 # myFun(1,2,3,4,5,5,6,6,6,6)
+
+# try:
+#     #print(x)
+#     print("try")
+# except Exception as e:
+#     print(e)
+# else:
+#     print("else")
+# finally:
+#     print("finally")
+# import mymodule
+# from mymodule import *
+#
+# mymodule.print_fun("abdelhay")
+# print(mymodule.person)
+
+# class Employee:
+#     Name = "abdelhay"
+#
+#     def __init__(self, name, age=25):
+#         self.Name = name
+#         self.age = str(age)
+#         print('constructor called ' + self.Name + ' age is ' + self.age)
+#
+#     def welcome_method(self):
+#         print("hello method")
+#
+#     @staticmethod
+#     def print_msg():
+#         print("static method")
+#
+#     @classmethod
+#     def class_method(cls):
+#         print("class method")
+#
+#     def __del__(self):
+#         print("destructor called")
+#
+#
+# obj = Employee("samir")
+# print(obj)
+# obj.welcomeMethod()
+# obj.job = "developer"
+# print(obj.Name + " " + obj.age + " its job is " + obj.job)
+# del obj.job
+# print(Employee.Name)
+# print(hasattr(obj, 'job'))
+# print(hasattr(obj, 'Name'))
+# attr = getattr(obj, 'age')
+# print(attr)
+# print(Employee.__dict__)
+
+# class child(parent):
 
