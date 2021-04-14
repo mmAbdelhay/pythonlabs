@@ -10,10 +10,12 @@ mydb = mysql.connector.connect(
 )
 
 cur = mydb.cursor()
+cur.autocommit = True
 cur.execute('''CREATE SCHEMA IF NOT EXISTS office ''')
-cur.execute("CREATE TABLE IF NOT EXISTS employee ( id AUTO INCREMENT PRIMARY KEY, full_name VARCHAR(50), email VARCHAR(50), "
-            "salary INT, is_manager INT )")
-cur.commit()
+cur.execute("CREATE TABLE IF NOT EXISTS employee ( id INT AUTO_INCREMENT PRIMARY KEY, full_name VARCHAR(50), "
+            "email VARCHAR(50), "
+            "salary INT, is_manager INT, health_rate INT )")
+
 
 class Person:
     full_name = None
@@ -39,7 +41,7 @@ class Employee(Person):
     Is_manager = None
     Health_rate = None
 
-    def __init__(self, email, salary, is_manager, health_rate):
+    def __init__(self, name, email, salary, is_manager, health_rate):
         regex = '^[a-z0-9]+[\._]?[a-z0-9]+[@]\w+[.]\w{2,3}$'
         if re.search(regex, email):
             self.Email = email
@@ -61,10 +63,13 @@ class Employee(Person):
         else:
             raise Exception("Sorry, is_manager must be 0 or 1")
 
-        sql = "INSERT INTO office.employee (full_name, email, salary, is_manager) VALUES (%s, %s, %d, %d)"
-        val = (self.full_name, self.Email, self.Salary, self.Is_manager)
+        self.full_name = name
+
+        sql = "INSERT INTO office.employee (full_name, email, salary, is_manager, health_rate) VALUES " \
+              "(%s, %s, %s, %s, %s) "
+        val = (self.full_name, self.Email, self.Salary, self.Is_manager, self.Health_rate)
         cur.execute(sql, val)
-        cur.commit()
+        print("employee added")
 
     def sleep(self, hours):
         if hours < 7:
@@ -99,19 +104,21 @@ class Employee(Person):
         f.write(email)
         f.close()
 
+
 class Office:
 
     def get_all_employees(self):
-        employees = cur.execute("select * from office.employee")
-        print(employees)
+        cur.execute("select * from office.employee")
+        employees = cur.fetchall()
+        return employees
 
     def get_employee(self, id):
-        employee = cur.execute("select * from office.employee where id = %d", id)
-        print(employee)
+        cur.execute("select * from office.employee where id = %s", (id,))
+        employee = cur.fetchall()
+        return employee
 
     def hire(self):
         print("hired")
 
     def fire(self):
         print("fired")
-
